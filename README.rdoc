@@ -1,5 +1,62 @@
 == README
 
+DB構成
+
+〜テーブル〜
+  ・users
+  ・protos
+  ・comments
+  ・tags
+  ・proto_tags（中間テーブル）
+
+〜アソシエーション〜
+  ・user has many protos
+                  comments
+  ・proto has many comments
+                   proto_tags
+                   tags, through proto_tags
+          belongs to user
+  ・tag has many proto_tags
+                 protos, through proto_tags
+  ・proto_tag belongs to tag
+                         proto
+  ・comment belongs to user
+                       proto
+
+〜users〜
+  ・id
+  ・name
+  ・e-mail
+  ・password
+  ・team
+  ・profile
+  ・work
+
+〜protos〜
+  ・id
+  ・title
+  ・image
+  ・catch_copy
+  ・concept
+  ・user_id
+
+〜comments〜
+  ・id
+  ・text
+  ・user_id
+  ・proto_id
+
+〜tags〜
+id
+name
+
+〜proto_tags〜
+id
+proto_id
+tag_id
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
