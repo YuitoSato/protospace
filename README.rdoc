@@ -7,21 +7,29 @@ DB構成
   ・protos
   ・comments
   ・tags
+  ・images
+  ・likes
   ・proto_tags（中間テーブル）
 
 〜アソシエーション〜
   ・user has many protos
                   comments
+                  likes
   ・proto has many comments
                    proto_tags
+                   likes
+                   images
                    tags, through proto_tags
           belongs to user
   ・tag has many proto_tags
                  protos, through proto_tags
-  ・proto_tag belongs to tag
-                         proto
   ・comment belongs to user
                        proto
+  ・image belongs to proto
+  ・like belongs to user
+                    proto
+  ・proto_tag belongs to tag
+                         proto
 
 〜users〜
   ・id
@@ -35,7 +43,6 @@ DB構成
 〜protos〜
   ・id
   ・title
-  ・image
   ・catch_copy
   ・concept
   ・user_id
@@ -47,13 +54,23 @@ DB構成
   ・proto_id
 
 〜tags〜
-id
-name
+  ・id
+  ・name
+
+〜images〜
+  ・id
+  ・images
+  ・proto_id
+
+〜likes〜
+  ・id
+  ・user_id
+  ・proto_id
 
 〜proto_tags〜
-id
-proto_id
-tag_id
+  ・id
+  ・proto_id
+  ・tag_id
 
 
 
