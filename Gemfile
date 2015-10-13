@@ -27,6 +27,12 @@ gem 'haml-rails'
 
 gem 'erb2haml'
 
+gem 'devise'
+
+gem 'carrierwave'
+
+gem 'rmagick'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
