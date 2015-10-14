@@ -29,7 +29,7 @@ class ProtosController < ApplicationController
 
   private
   def create_params
-    params.require(:proto).permit(:title, :catch_copy, :concept).merge(user_id: current_user.id)
+    params.require(:proto).permit(:title, :catch_copy, :concept)
   end
 
   def update_params
