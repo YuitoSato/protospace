@@ -1,26 +1,37 @@
-%h2
-  Please sign in
+.continer
+  #new_user
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      %h2.form-signin-heading
+        Please sign in
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+      %label.sr-only{ for: "user_email"}
+        Email
 
-  %div(class="field")
-    = f.label :email
-    = f.email_field :email, autofocus: true
+      #inputEmail
+        = f.email_field :email, autofocus: "autofocus", placeholder: "Email address", class: "form-control", id: "inputEmail"
 
-  %div(class="field")
-    = f.label :password
-    = f.password_field :password, autocomplete: "off"
+      %label.sr-only{ for: "password"}
+        Password
 
-  - if devise_mapping.rememberable?
-    %div(class="field")
-      = f.check_box :remember_me
-      = f.label :remember_me
+      #inputPassword
+        = f.password_field :password, autocomplete: "off", placeholder: "password", class: "form-control"
 
-  %div(class="actions")
-    = f.submit "SIGN IN"
+      .checkbox
+        %label
+          - if devise_mapping.rememberable?
+            #checkbox
+              = f.check_box :remember_me
+              = f.label :remember_me
 
-= render "devise/shared/links"
+      .actions
+        = f.submit "SIGN IN", class: "btn btn-lg btn-primary btn-block"
+
+    .text-center
+      %p
+        Not a member?
+      %a{ href: "/users/sign_up", target: "_self"}
+        Sign up now
 
 / <h2>Log in</h2>
 
