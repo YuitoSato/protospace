@@ -32,7 +32,7 @@ class ProtosController < ApplicationController
     params.require(:proto).permit(:title, :catch_copy, :concept)
   end
 
-  def update_params
-    params.require(:proto).permit(:title, :catch_copy, :concept)
-  end
+  # def update_params
+  #   params.require(:proto).permit(:title, :catch_copy, :concept)
+  # end
 end
