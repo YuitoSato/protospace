@@ -8,24 +8,24 @@ class ProtosController < ApplicationController
     redirect_to :root
   end
 
-  def edit
-    @proto = Proto.find(params[:id])
-  end
+  # def edit
+  #   @proto = Proto.find(params[:id])
+  # end
 
-  def update
-    @proto = Proto.update(update_params)
-    redirect_to :root
-  end
+  # def update
+  #   @proto = Proto.update(update_params)
+  #   redirect_to :root
+  # end
 
-  def destroy
-    proto = Proto.find(params[:id])
-    if proto.user_id == current_user.id
-      proto.destroy
-      redirect_to :root
-    else
-      redirect_to :root
-    end
-  end
+  # def destroy
+  #   proto = Proto.find(params[:id])
+  #   if proto.user_id == current_user.id
+  #     proto.destroy
+  #     redirect_to :root
+  #   else
+  #     redirect_to :root
+  #   end
+  # end
 
   private
   def create_params
