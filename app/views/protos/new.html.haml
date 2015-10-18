@@ -9,23 +9,23 @@
         .row
           .col-md-12
             .cover-image-upload
-              = f.fields_for :images do |a|
-                = a.file_field :image
-                = a.hidden_field :status, :value => :main
+              = f.fields_for :images do |image|
+                = image.file_field :image
+                = image.hidden_field :status, value: :main
 
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |b|
-                    = b.file_field :image
-                    = b.hidden_field :status, :value => :sub1
+                  = f.fields_for :images do |image|
+                    = image.file_field :image
+                    = image.hidden_field :status, value: :sub1
 
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |c|
-                    = c.file_field :image
-                    = c.hidden_field :status, :value => :sub2
+                  = f.fields_for :images do |image|
+                    = image.file_field :image
+                    = image.hidden_field :status, value: :sub2
 
               %li.list-group-item.col-md-4
                 .image-upload-plus
