@@ -17,21 +17,21 @@
     - @protos.each do |proto|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          %a{href: ""}
-            = image_tag("sample.png")
-            .caption
-              %h3
-                = proto.title
-              .proto-meta
-                .proto-user
-                  %a{href: "#"} by user
-                .proto-posted
-                  = proto.created_at
-              %ul.proto-tag-list.list-inline
-                %li
-                  %a{href: "#", class: "btn btn-default"} iPad
-                %li
-                  %a{href: "#", class: "btn btn-default"} wireframe
+          = link_to image_tag(proto.images.main.first.image), root_path
+          .caption
+            %h3
+              = proto.title
+            .proto-meta
+              .proto-user
+                %a{href: "#"} by user
+              .proto-posted
+                %time
+                  = time_ago_in_words proto.created_at
+            %ul.proto-tag-list.list-inline
+              %li
+                %a{href: "#", class: "btn btn-default"} iPad
+              %li
+                %a{href: "#", class: "btn btn-default"} wireframe
 
 .text-center
   %ul.pagination
