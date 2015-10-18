@@ -1,0 +1,29 @@
+.container.user-page
+  .user-nav
+    .media
+      .media-left
+        = image_tag(src: @user.avatar, alt: "64*64", class: "media-object", data:{ src: "holder.js/64x64" }, data:{ holder:{ rendered: "true"} })
+      .media-body
+        %h4.media-heading#top-aligned-media
+          Top aligned media
+          %span{ class: "label label-default project-number" }
+            = @user.protos.count
+            %i
+              Projects
+        .proto-user
+          %span{ class: "degree"}
+            = @user.team
+        .row
+          .col-md-6
+            %h4
+              Profile
+            %p
+              = @user.profile
+          .col-md-6
+            %h4
+              Works
+            %p
+              = @user.works
+
+.container.proto-list
+  .row
