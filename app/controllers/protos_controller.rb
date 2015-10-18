@@ -8,6 +8,10 @@ class ProtosController < ApplicationController
     redirect_to :root
   end
 
+  def show
+    @proto = Proto.find(params[:id])
+  end
+
   # def edit
   #   @proto = Proto.find(params[:id])
   # end
