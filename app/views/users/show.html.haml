@@ -1,0 +1,54 @@
+.container.user-page
+  .user-nav
+    .media
+      .media-left
+        = image_tag(@user.avatar, alt: "64*64", class: "media-object", style: "width: 64px; height: 64px;", data:{ src: "holder.js/64x64" }, data:{ holder:{ rendered: "true"} })
+      .media-body
+        %h4.media-heading#top-aligned-media
+          Top aligned media
+          %span{ class: "label label-default project-number" }
+            = @user.protos.count
+            %i
+              Projects
+        .proto-user
+          %span{ class: "degree"}
+            = @user.team
+        .row
+          .col-md-6
+            %h4
+              Profile
+            %p
+              = @user.profile
+          .col-md-6
+            %h4
+              Works
+            %p
+              = @user.works
+
+.container.proto-list
+  .row
+    .col-sm-4.col-md-3.proto-content
+      .dropdown.drop_menu_location
+        %button{ class: "btn btn-default dropdown-toggle", id: "dropdownMenu", type: "button", data: { toggle: "dropdown"} }
+          Action
+        %ul{ class: "dropdown-menu", aria: { labelledby: "dropdownMenu1"} }
+          %li
+            = link_to "Delete", "#", method: :Delete
+          %li
+            = link_to "Edit", "#"
+      - @user.protos.each do |proto|
+        .thumbnail
+          = image_tag("#")
+        .caption
+          %h3
+            = proto.title
+          .proto-meta
+            .proto-user
+              by
+              = proto.user
+            .proto-posted
+              = time_ago_in_words proto.created_at
+          %ul.proto-tag-list.list-inline
+            %li
+              = link_to "アプリ", "#", class: "btn btn-default"
+

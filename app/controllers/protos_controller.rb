@@ -1,6 +1,7 @@
 class ProtosController < ApplicationController
   def new
     @proto = Proto.new
+    @proto.images.build
   end
 
   def create
@@ -33,7 +34,7 @@ class ProtosController < ApplicationController
 
   private
   def create_params
-    params.require(:proto).permit(:title, :catch_copy, :concept)
+    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status])
   end
 
   # def update_params
