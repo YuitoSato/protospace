@@ -3,7 +3,7 @@
     .col-md-6
       .media
         .media-left
-          = link_to image_tag("#", alt: "64x64", class: "media-object", style: "width: 64px; height: 64px;", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true" } }), root_path
+          = link_to image_tag("#", alt: "64x64", class: "media-object", style: "width: 64px; height: 64px;", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true" } }), "#"
         .media-body
           %h4.media-heading#top-aligned-media
             @proto.title
@@ -52,7 +52,7 @@
       #comment_list
         .media
           .media-left
-            = link_to "ユーザー名", root_path
+            = link_to "ユーザー名", "#"
             = link_to image_tag("#", style: "width: 64px; height: 64px;", alt: "64x64", class: "media-object", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true"} }, )
           .media-body
             %h4.media-heading#top-aligned-media
