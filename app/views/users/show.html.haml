@@ -2,7 +2,7 @@
   .user-nav
     .media
       .media-left
-        = image_tag(@user.avatar.url, alt: "64*64", class: "media-object", style: "width: 64px; height: 64px;", data:{ src: "holder.js/64x64" }, data:{ holder:{ rendered: "true"} })
+        = image_tag(@user.avatar, alt: "64*64", class: "media-object", style: "width: 64px; height: 64px;", data:{ src: "holder.js/64x64" }, data:{ holder:{ rendered: "true"} })
       .media-body
         %h4.media-heading#top-aligned-media
           Top aligned media
