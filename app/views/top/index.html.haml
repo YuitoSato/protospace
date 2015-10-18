@@ -25,7 +25,8 @@
               .proto-user
                 %a{href: "#"} by user
               .proto-posted
-                = proto.created_at
+                %time
+                  = time_ago_in_words proto.created_at
             %ul.proto-tag-list.list-inline
               %li
                 %a{href: "#", class: "btn btn-default"} iPad
