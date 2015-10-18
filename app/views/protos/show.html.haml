@@ -1,0 +1,63 @@
+.container.proto-page
+  %header.row.user-nav
+    .col-md-6
+      .media
+        .media-left
+          = link_to image_tag("#", alt: "64x64", class: "media-object", style: "width: 64px; height: 64px;", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true" } }), "#"
+        .media-body
+          %h4.media-heading#top-aligned-media
+            @proto.title
+          .proto-user
+            by
+            = link_to "ユーザー名", "#"
+          %span.degree
+            ユーザーのプロフィール
+    .col-md-6.text-right
+      %button.btn.btn-default.increment-button#like-button
+        = image_tag ("icon_heart.svg")
+        Like
+        %span.num#like-sum
+          100
+  .row
+    .col-md-9
+      = image_tag("#", class: "img-responsive")
+    .col-md-3
+      %ul.proto-sub-list.list-group
+        %li.list-group-item
+          = image_tag("#", class: "img-responsive")
+
+  .row.proto-description
+    .col-md-3
+      %h4
+        Catch Copy
+      %p
+        = @proto.catch_copy
+    .col-md-6
+      %h4
+        Concept
+      %p
+        = @proto.concept
+    .col-md-3
+      %h4
+        Tag List
+      %ul.proto-tag-list.list-inline
+        %li
+          = link_to "タグ名", "#", class: "btn btn-default"
+  .row.proto-comments
+    %h4.col-md-12
+      Comments
+      %span.num
+        100
+    .col-md-8#comment_area
+      #comment_list
+        .media
+          .media-left
+            = link_to "ユーザー名", "#"
+            = link_to image_tag("#", style: "width: 64px; height: 64px;", alt: "64x64", class: "media-object", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true"} }, )
+          .media-body
+            %h4.media-heading#top-aligned-media
+              ユーザー名
+              %a{ class: "anchorjs-link", href: "#top-aligned-media" }
+                %span{ class: "anchorjs-icon" }
+            %p
+              コメント内容
