@@ -38,5 +38,18 @@
         .col-md-12
           = f.text_field :concept, cols: "30", rows: "4", placeholder: "Concept"
 
+        .col-md-12
+          %h4
+            Tag List
+          .row
+            .col-md-3
+              = text_field_tag "proto[tags][]", "", id: "prototype_tag_list_", placeholder: "Web Design"
+
+            .col-md-3
+              = text_field_tag "proto[tags][]", "", id: "prototype_tag_list_", placeholder: "UI"
+
+            .col-md-3
+              = text_field_tag "proto[tags][]", "", id: "prototype_tag_list_", placeholder: "Application"
+
       .row.text-center.proto-btn
         = f.submit value: 'Publish', class: "btn btn-lg btn-primary btn-block"

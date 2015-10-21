@@ -34,7 +34,7 @@ class ProtosController < ApplicationController
 
   private
   def create_params
-    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status])
+    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status]).merge(tag_list: params[:proto][:tags])
   end
 
   # def update_params
