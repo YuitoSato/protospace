@@ -1,4 +1,4 @@
-class Lists::TagsController < ApplicationController
+class TagsController < ApplicationController
   def index
     @tags = ActsAsTaggableOn::Tag.most_used(20)
   end
