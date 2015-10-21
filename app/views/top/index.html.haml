@@ -10,7 +10,7 @@
           %a{href: "#"} Popular PROTO
         %li{role: "presentation"}
           %a{href: "#"} Newest PROTO
-      = link_to "View Tags", lists_tags_path, class: "btn btn-default col-lg-1"
+      = button_to "View Tags", tags_path, method: :get, class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
@@ -30,7 +30,7 @@
             %ul.proto-tag-list.list-inline
               - proto.tag_list.each do |tag|
                 %li
-                  = link_to tag, lists_tag_path(tag), class: "btn btn-default"
+                  = link_to tag, tag_path(tag), class: "btn btn-default"
 
 .text-center
   %ul.pagination
