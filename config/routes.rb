@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'top#index'
   devise_for :users
-  resources :protos, only: [:create, :new, :show]
+  resources :protos, only: [:create, :new, :show, :edit, :update, :destroy]
   resources :users, only: [:show]
   resources :tags, param: :tag_name, only: [:index, :show]
 
