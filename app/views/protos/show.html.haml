@@ -41,8 +41,9 @@
       %h4
         Tag List
       %ul.proto-tag-list.list-inline
-        %li
-          = link_to "タグ名", "#", class: "btn btn-default"
+        - @proto.tag_list.each do |tag|
+          %li
+            = link_to tag, "#", class: "btn btn-default"
   .row.proto-comments
     %h4.col-md-12
       Comments

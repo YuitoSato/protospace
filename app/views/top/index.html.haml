@@ -17,7 +17,7 @@
     - @protos.each do |proto|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to image_tag(proto.images.main.first.image), root_path
+          = link_to image_tag(proto.images.main.first.image), proto_path(proto)
           .caption
             %h3
               = proto.title
@@ -28,10 +28,9 @@
                 %time
                   = time_ago_in_words proto.created_at
             %ul.proto-tag-list.list-inline
-              %li
-                %a{href: "#", class: "btn btn-default"} iPad
-              %li
-                %a{href: "#", class: "btn btn-default"} wireframe
+              - proto.tag_list.each do |tag|
+                %li
+                  = link_to tag, "#", class: "btn btn-default"
 
 .text-center
   %ul.pagination
