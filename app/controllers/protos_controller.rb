@@ -18,7 +18,7 @@ class ProtosController < ApplicationController
   end
 
   def update
-    @proto = Proto.update(update_params)
+    Proto.find(params[:id]).update(update_params)
     redirect_to :root
   end
 
@@ -34,10 +34,10 @@ class ProtosController < ApplicationController
 
   private
   def create_params
-    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status]).merge(tag_list: params[:proto][:tags]).merge(user_id: current_user.id)
+    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status]).merge(tag_list: params[:tags]).merge(user_id: current_user.id)
   end
 
   def update_params
-    params.require(:proto).permit(:title, :catch_copy, :concept).merge(tag_list: params[:proto][:tags])
+    params.require(:proto).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status, :id]).merge(tag_list: params[:tags]).merge(user_id: current_user.id)
   end
 end

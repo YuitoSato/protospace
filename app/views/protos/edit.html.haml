@@ -1,0 +1,55 @@
+%div.container.proto-new
+  = form_for(@proto) do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          .proto-new-title
+            = f.text_field :title, autofocus: true, placeholder: "Title"
+
+        .row
+          .col-md-12
+            .cover-image-upload
+              = f.fields_for :images, @proto.images.main.first do |image|
+                = image.file_field :image
+                = image.hidden_field :status, value: :main
+
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = f.fields_for :images, @proto.images.sub1.first do |image|
+                    = image.file_field :image
+                    = image.hidden_field :status, value: :sub1
+
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = f.fields_for :images, @proto.images.sub2.first do |image|
+                    = image.file_field :image
+                    = image.hidden_field :status, value: :sub2
+
+              %li.list-group-item.col-md-4
+                .image-upload-plus
+                  %span +
+
+      .row.proto-description
+        .col-md-12
+          = f.text_field :catch_copy, placeholder: "Catch copy"
+
+        .col-md-12
+          = f.text_field :concept, cols: "30", rows: "4", placeholder: "Concept"
+
+        .col-md-12
+          %h4
+            Tag List
+          .row
+            .col-md-3
+              = text_field_tag "tags[]", @proto.tag_list.first, id: "prototype_tag_list_", placeholder: "Web Design"
+
+            .col-md-3
+              = text_field_tag "tags[]", @proto.tag_list.second, id: "prototype_tag_list_", placeholder: "UI"
+
+            .col-md-3
+              = text_field_tag "tags[]", @proto.tag_list.third, id: "prototype_tag_list_", placeholder: "Application"
+
+      .row.text-center.proto-btn
+        = f.submit value: 'Publish', class: "btn btn-lg btn-primary btn-block"
