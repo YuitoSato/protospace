@@ -13,11 +13,17 @@
           %span.degree
             ユーザーのプロフィール
     .col-md-6.text-right
-      %button.btn.btn-default.increment-button#like-button
-        = image_tag ("icon_heart.svg")
-        Like
-        %span.num#like-sum
-          100
+      - if @proto.like_user(current_user)
+        %button.btn.btn-default.decrement-button#like-button
+          = link_to image_tag("icon_red_heart.svg"), like_path(proto_id: @proto.id), method: :delete, remote: true
+          %span.num#like-sum
+            = likes_counter(@likes)
+      - else
+        %button.btn.btn-default.increment-button#like-button
+          = link_to image_tag("icon_heart.svg"), likes_path(proto_id: @proto.id), method: :post, remote: true
+          %span.num#like-sum
+            = likes_counter(@likes)
+
   .row
     .col-md-9
       = image_tag("#", class: "img-responsive")
