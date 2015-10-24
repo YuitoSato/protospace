@@ -51,7 +51,7 @@
         = @comments.count
     .col-md-8#comment_area
       #comment_list
-        = render partial: "comment", collection: @comments
+        = render partial: "comments/comment", collection: @comments
       .form-inline
         = form_for @comment, remote: true do |f|
           %h4
