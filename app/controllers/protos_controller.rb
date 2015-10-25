@@ -11,6 +11,8 @@ class ProtosController < ApplicationController
 
   def show
     @proto = Proto.find(params[:id])
+    @comment = Comment.new
+    @comments = @proto.comments
   end
 
   def edit

@@ -50,17 +50,17 @@
     %h4.col-md-12
       Comments
       %span.num
-        100
+        = @comments.count
     .col-md-8#comment_area
       #comment_list
-        .media
-          .media-left
-            = link_to "ユーザー名", "#"
-            = link_to image_tag("#", style: "width: 64px; height: 64px;", alt: "64x64", class: "media-object", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true"} }, )
-          .media-body
-            %h4.media-heading#top-aligned-media
-              ユーザー名
-              %a{ class: "anchorjs-link", href: "#top-aligned-media" }
-                %span{ class: "anchorjs-icon" }
-            %p
-              コメント内容
+        = render partial: "comments/comment", collection: @comments
+      .form-inline
+        = form_for @comment, remote: true do |f|
+          %h4
+            Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_field :text, placeholder: "Your comments", rows: "3", id: "comment_text", class: "textform-control"
+              = f.hidden_field :proto_id, value: @proto.id
+            .form-group.col-md-2
+              = f.submit "Comment", class: "btn btn-primary"
