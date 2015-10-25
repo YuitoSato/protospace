@@ -13,16 +13,20 @@
           %span.degree
             ユーザーのプロフィール
     .col-md-6.text-right
-      - if @proto.like_user(current_user)
-        %button.btn.btn-default.decrement-button#like-button
-          = link_to image_tag("icon_red_heart.svg"), like_path(proto_id: @proto.id), method: :delete, remote: true
-          %span.num#like-sum
-            = likes_counter(@likes)
-      - else
-        %button.btn.btn-default.increment-button#like-button
-          = link_to image_tag("icon_heart.svg"), likes_path(proto_id: @proto.id), method: :post, remote: true
-          %span.num#like-sum
-            = likes_counter(@likes)
+      -# - if @proto.like_user(current_user)
+      %button.btn.btn-default.decrement-button#like-button
+        = link_to image_tag("icon_red_heart.svg"), like_path(proto_id: @proto.id), method: :delete, remote: true
+        %span.num#like-sum
+          = likes_counter(@likes)
+        %p
+          あ
+      -# - else
+      %button.btn.btn-default.increment-button#like-button
+        = link_to image_tag("icon_heart.svg"), likes_path(proto_id: @proto.id), method: :post, remote: true
+        %span.num#like-sum
+          = likes_counter(@likes)
+        %p
+          い
 
   .row
     .col-md-9
@@ -68,3 +72,5 @@
                 %span{ class: "anchorjs-icon" }
             %p
               コメント内容
+
+-# #increment-like-sum#decrement-like-sum/
