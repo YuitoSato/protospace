@@ -1,4 +1,1 @@
-// console.log("Hello world");
-$(".decrement-button").hide();
-$(".increment-button").show();
-$("#increment-like-sum").html("<%= like_counter(@likes) %>");
+$("#like-buttons").html("<%= j(render partial: 'likes/like', locals: { proto: @proto, likes: @likes }) %>");
