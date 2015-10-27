@@ -6,6 +6,6 @@ class Proto < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   def like_user(user)
-    likes.find_by(user_id: user)
+   likes.find_by(user_id: user.id)
   end
 end
