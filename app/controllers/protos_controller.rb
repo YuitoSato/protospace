@@ -12,8 +12,8 @@ class ProtosController < ApplicationController
   def show
     @proto = Proto.find(params[:id])
     @likes = Like.where(proto_id: params[:id])
-    if Like.where(proto_id: params[:id], user_id: current_user.id).exists?
-      @like = Like.where(proto_id: params[:id], user_id: current_user.id)
+    if @proto.like_user(current_user)
+      @like = Like.where(user_id: current_user.id, proto_id: params[:id])
     end
   end
 
