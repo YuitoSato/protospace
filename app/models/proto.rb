@@ -5,7 +5,7 @@ class Proto < ActiveRecord::Base
   accepts_nested_attributes_for :images
   acts_as_taggable_on :tags
 
-  def like_user(user)
-   likes.find_by(user_id: user.id)
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
   end
 end
