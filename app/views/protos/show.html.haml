@@ -3,27 +3,28 @@
     .col-md-6
       .media
         .media-left
-          = link_to image_tag("#", alt: "64x64", class: "media-object", style: "width: 64px; height: 64px;", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true" } }), "#"
+          = link_to image_tag(@proto.user.avatar, alt: "64x64", class: "media-object", style: "width: 64px; height: 64px;", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true" } }), user_path(@proto.user)
         .media-body
           %h4.media-heading#top-aligned-media
-            @proto.title
+            =  @proto.title
           .proto-user
             by
-            = link_to "ユーザー名", "#"
+            = link_to @proto.user.username, user_path(@proto.user)
           %span.degree
-            ユーザーのプロフィール
-
+            = @proto.user.profile
     .col-md-6.text-right
       #like-buttons
         = render partial: "/likes/like", locals: { proto: @proto, likes: @likes, like: @like }
 
   .row
     .col-md-9
-      = image_tag("#", class: "img-responsive")
+      = link_to image_tag(@proto.images.main.first.image), proto_path(@proto), class: "img-responsive thumbnail"
     .col-md-3
       %ul.proto-sub-list.list-group
         %li.list-group-item
-          = image_tag("#", class: "img-responsive")
+          = link_to image_tag(@proto.images.sub1.first.image), proto_path(@proto), class: "img-responsive thumbnail"
+        %li.list-group-item
+          = link_to image_tag(@proto.images.sub2.first.image), proto_path(@proto), class: "img-responsive thumbnail"
 
   .row.proto-description
     .col-md-3
@@ -48,17 +49,17 @@
     %h4.col-md-12
       Comments
       %span.num
-        100
+        = @comments.count
     .col-md-8#comment_area
       #comment_list
-        .media
-          .media-left
-            = link_to "ユーザー名", "#"
-            = link_to image_tag("#", style: "width: 64px; height: 64px;", alt: "64x64", class: "media-object", data: { src: "holder.js/64x64" }, data: { holder: { rendered: "true"} }, )
-          .media-body
-            %h4.media-heading#top-aligned-media
-              ユーザー名
-              %a{ class: "anchorjs-link", href: "#top-aligned-media" }
-                %span{ class: "anchorjs-icon" }
-            %p
-              コメント内容
+        = render partial: "comments/comment", collection: @comments
+      .form-inline
+        = form_for @comment, remote: true do |f|
+          %h4
+            Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_field :text, placeholder: "Your comments", rows: "3", id: "comment_text", class: "textform-control"
+              = f.hidden_field :proto_id, value: @proto.id
+            .form-group.col-md-2
+              = f.submit "Comment", class: "btn btn-primary"
