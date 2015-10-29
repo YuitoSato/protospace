@@ -29,13 +29,21 @@ ActiveRecord::Schema.define(version: 20151023110955) do
     t.integer  "status",     limit: 4
   end
 
-  create_table "protos", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "catch_copy", limit: 65535
-    t.text     "concept",    limit: 65535
+  create_table "likes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "proto_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "protos", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "catch_copy",  limit: 65535
+    t.text     "concept",     limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "likes_count", limit: 4
   end
 
   create_table "taggings", force: :cascade do |t|

@@ -13,11 +13,9 @@
           %span.degree
             = @proto.user.profile
     .col-md-6.text-right
-      %button.btn.btn-default.increment-button#like-button
-        = image_tag ("icon_heart.svg")
-        Like
-        %span.num#like-sum
-          100
+      #like-buttons
+        = render partial: "/likes/like", locals: { proto: @proto, likes: @likes, like: @like }
+
   .row
     .col-md-9
       = link_to image_tag(@proto.images.main.first.image), proto_path(@proto), class: "img-responsive thumbnail"
@@ -46,6 +44,7 @@
         - @proto.tag_list.each do |tag|
           %li
             = link_to tag, tag_path(tag), class: "btn btn-default"
+
   .row.proto-comments
     %h4.col-md-12
       Comments

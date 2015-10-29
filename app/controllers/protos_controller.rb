@@ -11,6 +11,12 @@ class ProtosController < ApplicationController
 
   def show
     @proto = Proto.find(params[:id])
+    @likes = Like.where(proto_id: params[:id])
+      if user_signed_in?
+        if @proto.like_user(current_user.id).present?
+          @like = Like.where(user_id: current_user.id, proto_id: params[:id])
+        end
+      end
     @comment = Comment.new
     @comments = @proto.comments
   end

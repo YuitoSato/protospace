@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :protos, only: [:create, :new, :show, :edit, :update, :destroy]
   resources :users, only: [:show]
   resources :tags, param: :tag_name, only: [:index, :show]
+  resources :likes, only: [:create, :destroy]
   resources :comments, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
