@@ -1,4 +1,8 @@
 class ProtosController < ApplicationController
+  def index
+    @protos = Proto.order('created_at DESC').page(params[:page]).per(8)
+  end
+
   def new
     @proto = Proto.new
     @proto.images.build

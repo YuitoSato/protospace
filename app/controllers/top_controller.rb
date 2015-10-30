@@ -1,5 +1,5 @@
 class TopController < ApplicationController
   def index
-    @protos = Proto.page(params[:page]).per(8)
+    @protos = Proto.order('likes_count DESC').page(params[:page]).per(8)
   end
 end
