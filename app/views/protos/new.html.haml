@@ -8,8 +8,8 @@
 
         .row
           .col-md-12
-            .cover-image-upload
-              = f.fields_for :images do |image|
+            .cover-image-upload#main-image
+              = f.fields_for :image, id: "main-image-preview" do |image|
                 = image.file_field :image
                 = image.hidden_field :status, value: :main
 
