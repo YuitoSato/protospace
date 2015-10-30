@@ -1,8 +1,9 @@
-document.getElementById( "main-image" ).onchange = function main_image_preview(){
+function main_image_preview(){
   console.log("show preview!")
-  var fileList , file , fr , result ;
-  console.log(this)
-  fileList = this.files ;
+  var fileList , file , fr , result, image ;
+  image = document.getElementById( "image_image") ;
+  console.log(image)
+  fileList = image.files ;
   console.log(fileList)
   result = document.getElementById( "main-image" ) ;
   result.innerHTML = "" ;
@@ -12,3 +13,6 @@ document.getElementById( "main-image" ).onchange = function main_image_preview()
     result.innerHTML += '<img src="' + src + '" width="auto" height="100">' ;
   }
 }
+
+
+

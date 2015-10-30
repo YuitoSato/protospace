@@ -9,8 +9,8 @@
         .row
           .col-md-12
             .cover-image-upload#main-image
-              = f.fields_for :image, id: "main-image-preview" do |image|
-                = image.file_field :image
+              = f.fields_for :image do |image|
+                = image.file_field :image, onChange: "javascript: main_image_preview();"
                 = image.hidden_field :status, value: :main
 
           .col-md-12
