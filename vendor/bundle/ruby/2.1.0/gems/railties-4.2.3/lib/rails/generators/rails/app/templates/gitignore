@@ -17,8 +17,7 @@
 /log/*
 !/log/.keep
 /tmp
+/log/development.log
 
 # Ignore all files in config/secrets.yml
 /config/secrets.yml
-
-/log/development.log
