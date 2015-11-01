@@ -6,26 +6,31 @@
           .proto-new-title
             = f.text_field :title, autofocus: true, placeholder: "Title"
 
+
         .row
           .col-md-12
             .cover-image-upload
-              = f.fields_for :images do |image|
-                = image.file_field :image
+              = f.fields_for :image do |image|
+                = image.file_field :image, onChange: "javascript: main_image_preview();", id: "main-image"
                 = image.hidden_field :status, value: :main
+            #main-preview.thumbnail
+
 
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
-                .image-upload
+                #sub1-upload.image-upload
                   = f.fields_for :images do |image|
-                    = image.file_field :image
+                    = image.file_field :image, onChange: "javascript: sub1_image_preview();", id: "sub1-image"
                     = image.hidden_field :status, value: :sub1
+                #sub1-preview.thumbnail
 
               %li.list-group-item.col-md-4
-                .image-upload
+                #sub2-upload.image-upload
                   = f.fields_for :images do |image|
-                    = image.file_field :image
+                    = image.file_field :image, onChange: "javascript: sub2_image_preview();", id: "sub2-image"
                     = image.hidden_field :status, value: :sub2
+                #sub2-preview.thumbnail
 
               %li.list-group-item.col-md-4
                 .image-upload-plus
