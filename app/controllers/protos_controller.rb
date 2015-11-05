@@ -1,6 +1,6 @@
 class ProtosController < ApplicationController
   def index
-    @protos = Proto.order('created_at DESC').page(params[:page]).per(8)
+    @protos = Proto.order(:created_at).reverse_order.page(params[:page]).per(8)
   end
 
   def new
