@@ -322,6 +322,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2 (= 0.3.20)
+  nokogiri
   pry-rails
   rails (= 4.2.3)
   sass-rails (~> 5.0)
