@@ -14,3 +14,7 @@
 
 # Ignore all files in the public/uploads/
 /public/uploads
+
+/vendor
+
+/config/settings.local.yml
