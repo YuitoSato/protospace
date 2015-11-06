@@ -4,7 +4,6 @@
   .media-body
     %h4.media-heading#top-aligned-media
       = link_to comment.user.username, user_path(comment.user)
-      %a{ class: "anchorjs-link", href: "#top-aligned-media" }
-        %span{ class: "anchorjs-icon" }
+      = link_to
     %p
       = comment.text

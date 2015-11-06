@@ -32,7 +32,7 @@
               = proto.title
             .proto-meta
               .proto-user
-                %a{href: "#"} by user
+                = link_to proto.user.username, user_path(proto.user)
               .proto-posted
                 %time
                   = time_ago_in_words proto.created_at
