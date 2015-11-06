@@ -16,6 +16,15 @@
   .row
     - @protos.each do |proto|
       .col-sm-4.col-md-3.proto-content
+        .dropdown.drop_menu_location
+          - if user_signed_in? && proto.user_id == current_user.id
+            %button.btn.btn-default.dropdown-toggle#dropdownMenu{ type: "button", aria: { expanded: "true" }, data: { toggle: "dropdown" } }
+              Action
+            %ul.dropdown-menu{ aria: { labelledby: "dropdownMenu1" } }
+              %li
+                = link_to "Delete", "/protos/#{proto.id}", method: :delete, rel: "nofollow", data: { method: "delete" }
+              %li
+                = link_to "Edit", edit_proto_path(proto)
         .thumbnail
           = link_to image_tag(proto.images.main.first.image), proto_path(proto)
           .caption
@@ -23,7 +32,7 @@
               = link_to proto.title, proto_path(proto)
             .proto-meta
               .proto-user
-                %a{href: "#"} by user
+                = link_to proto.user.username, user_path(proto.user)
               .proto-posted
                 %time
                   = time_ago_in_words proto.created_at
@@ -31,3 +40,7 @@
               - proto.tag_list.each do |tag|
                 %li
                   = link_to tag, tag_path(tag), class: "btn btn-default"
+
+.text-center
+  %ul.pagination
+    = paginate(@protos)

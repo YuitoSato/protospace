@@ -29,26 +29,27 @@
   .row
     .col-sm-4.col-md-3.proto-content
       .dropdown.drop_menu_location
-        %button{ class: "btn btn-default dropdown-toggle", id: "dropdownMenu", type: "button", data: { toggle: "dropdown"} }
-          Action
-        %ul{ class: "dropdown-menu", aria: { labelledby: "dropdownMenu1"} }
-          %li
-            = link_to "Delete", "#", method: :Delete
-          %li
-            = link_to "Edit", "#"
-      - @user.protos.each do |proto|
-        .thumbnail
-          = link_to image_tag(proto.images.main.first.image), proto_path(proto)
-        .caption
-          %h3
-            = proto.title
-          .proto-meta
-            .proto-user
-              by
-              = proto.user.username
-            .proto-posted
-              = time_ago_in_words proto.created_at
-          %ul.proto-tag-list.list-inline
-            - proto.tag_list.each do |tag|
+        - @user.protos.each do |proto|
+          .dropdown.drop_menu_location
+            %button{ class: "btn btn-default dropdown-toggle", id: "dropdownMenu", type: "button", data: { toggle: "dropdown"} }
+              Action
+            %ul{ class: "dropdown-menu", aria: { labelledby: "dropdownMenu1"} }
               %li
-                = link_to tag, tag_path(tag), class: "btn btn-default"
+                = link_to "Delete", "/protos/#{proto.id}", method: :Delete
+              %li
+                = link_to "Edit", edit_proto_path(proto)
+          .thumbnail
+            = link_to image_tag(proto.images.main.first.image), proto_path(proto)
+          .caption
+            %h3
+              = proto.title
+            .proto-meta
+              .proto-user
+                by
+                = proto.user.username
+              .proto-posted
+                = time_ago_in_words proto.created_at
+            %ul.proto-tag-list.list-inline
+              - proto.tag_list.each do |tag|
+                %li
+                  = link_to tag, tag_path(tag), class: "btn btn-default"
