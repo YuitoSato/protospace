@@ -4,6 +4,8 @@
       %header.row.user-nav.row
         .col-md-12
           .proto-new-title
+            - flash.each do |key, value|
+              = content_tag(:div, value, class: "#{key}")
             = f.text_field :title, autofocus: true, placeholder: "Title"
 
         .row

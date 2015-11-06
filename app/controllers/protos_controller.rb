@@ -13,7 +13,8 @@ class ProtosController < ApplicationController
     if @proto.valid?
       redirect_to :root
     else
-      redirect_to action: :new
+      flash[:notice] = "Title and Catch_copy can't be blank."
+      render :new
     end
   end
 
