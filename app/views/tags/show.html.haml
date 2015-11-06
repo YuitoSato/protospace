@@ -20,7 +20,7 @@
           = link_to image_tag(proto.images.main.first.image), proto_path(proto)
           .caption
             %h3
-              = proto.title
+              = link_to proto.title, proto_path(proto)
             .proto-meta
               .proto-user
                 %a{href: "#"} by user

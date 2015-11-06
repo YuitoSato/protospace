@@ -54,7 +54,7 @@
       #comment_list
         = render partial: "comments/comment", collection: @comments
       .form-inline
-        = form_for @comment, remote: true do |f|
+        = form_for [@proto, @comment], remote: true do |f|
           %h4
             Write a comment
           .row
