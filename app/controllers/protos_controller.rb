@@ -13,7 +13,6 @@ class ProtosController < ApplicationController
     if @proto.valid?
       redirect_to :root
     else
-      @errors = @proto.errors.full_messages
       redirect_to action: :new
     end
   end
