@@ -4,6 +4,6 @@ class TagsController < ApplicationController
   end
 
   def show
-    @protos = Proto.tagged_with(params[:tag_name])
+    @protos = Proto.includes(:user, :images).tagged_with(params[:tag_name])
   end
 end
