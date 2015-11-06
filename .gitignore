@@ -16,3 +16,5 @@
 /public/uploads
 
 /vendor
+
+/config/settings.local.yml
