@@ -1,9 +1,3 @@
-$(window).on("load", function() {
-  $("#main-preview").hide();
-  $("#sub1-preview").hide();
-  $("#sub2-preview").hide();
-});
-
 $(function() {
     $('#main-image').uploadThumbs({
         position : '#main-preview.thumbnail',
