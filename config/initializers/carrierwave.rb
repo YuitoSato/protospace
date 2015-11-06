@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
   config.fog_attributes = {'Cache-Control' => 'public' 'max-age=315576000'}
 
   config.fog_directory = 's3yuito-protospace'
-  config.asset_host = 's3yuito-protospace'
+  config.asset_host = Settings.aws[:url]
   config.storage = :fog
 
 end
