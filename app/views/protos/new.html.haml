@@ -5,12 +5,14 @@
         .col-md-12
           .proto-new-title
             = f.text_field :title, autofocus: true, placeholder: "Title"
+            - if @proto.errors.any?
+              = @proto.errors.inspect
 
 
         .row
           .col-md-12
             .cover-image-upload
-              = f.fields_for :image do |image|
+              = f.fields_for :images do |image|
                 = image.file_field :image, onChange: "javascript: main_image_preview();", id: "main-image"
                 = image.hidden_field :status, value: :main
             #main-preview.thumbnail
