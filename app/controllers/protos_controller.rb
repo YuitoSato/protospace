@@ -10,7 +10,12 @@ class ProtosController < ApplicationController
 
   def create
     @proto = Proto.create(create_params)
-    redirect_to :root
+    if @proto.valid?
+      redirect_to :root
+    else
+      flash[:notice] = "Title and Catch_copy can't be blank."
+      render :new
+    end
   end
 
   def show
