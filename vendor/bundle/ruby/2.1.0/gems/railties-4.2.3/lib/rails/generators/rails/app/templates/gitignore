@@ -7,20 +7,13 @@
 # Ignore bundler config.
 /.bundle
 
+<% if sqlite3? -%>
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+<% end -%>
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
-
-# Ignore all files in the public/uploads/
-/public/uploads
-
-# Ignore all files in the vendor
-/vendor
-
-# Ignore all files in config/secrets.yml
-/config/secrets.yml
-
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
