@@ -10,7 +10,12 @@ class ProtosController < ApplicationController
 
   def create
     @proto = Proto.create(create_params)
-    redirect_to :root
+    if @proto.valid?
+      redirect_to :root
+    else
+      @errors = @proto.errors.full_messages
+      redirect_to action: :new
+    end
   end
 
   def show

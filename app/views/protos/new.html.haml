@@ -5,9 +5,6 @@
         .col-md-12
           .proto-new-title
             = f.text_field :title, autofocus: true, placeholder: "Title"
-            - if @proto.errors.any?
-              = @proto.errors.inspect
-
 
         .row
           .col-md-12
@@ -16,7 +13,6 @@
                 = image.file_field :image, onChange: "javascript: main_image_preview();", id: "main-image"
                 = image.hidden_field :status, value: :main
             #main-preview.thumbnail
-
 
           .col-md-12
             %ul.proto-sub-list.list-group
@@ -57,6 +53,5 @@
 
             .col-md-3
               = text_field_tag "tags[]", "", id: "prototype_tag_list", placeholder: "Application"
-
       .row.text-center.proto-btn
         = f.submit value: 'Publish', class: "btn btn-lg btn-primary btn-block"
