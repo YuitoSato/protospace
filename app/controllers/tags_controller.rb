@@ -4,6 +4,6 @@ class TagsController < ApplicationController
   end
 
   def show
-    @protos = Proto.includes(:user, :images).tagged_with(params[:tag_name])
+    @protos = Proto.includes(:user, :images).tagged_with(params[:tag_name]).order(:likes_count).reverse_order.page(params[:page]).per(8)
   end
 end
