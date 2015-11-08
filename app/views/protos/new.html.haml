@@ -23,14 +23,12 @@
                     = image.hidden_field :status, value: :sub1
                 #sub1-preview.thumbnail
 
-
               %li.list-group-item.col-md-4
                 #sub2-upload.image-upload
                   = f.fields_for :images do |image|
                     = image.file_field :image, onChange: "javascript: sub2_image_preview();", id: "sub2-image"
                     = image.hidden_field :status, value: :sub2
                 #sub2-preview.thumbnail
-
 
               %li.list-group-item.col-md-4
                 .image-upload-plus
