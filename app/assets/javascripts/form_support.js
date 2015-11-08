@@ -1,4 +1,7 @@
 $(function() {
+    $("#main-preview").hide();
+    $("#sub1-preview").hide();
+    $("#sub2-preview").hide();
     $('#main-image').uploadThumbs({
         position : '#main-preview.thumbnail',
     });
@@ -8,7 +11,6 @@ $(function() {
     $('#sub2-image').uploadThumbs({
         position : '#sub2-preview.thumbnail',
     });
-
 });
 
 function main_image_preview() {
