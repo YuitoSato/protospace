@@ -5,6 +5,7 @@ $(function() {
     $('#sub1-image').uploadThumbs({
         position : '#sub1-preview.thumbnail',
     });
+    $("#main-preview").show();
     $('#sub2-image').uploadThumbs({
         position : '#sub2-preview.thumbnail',
     });
