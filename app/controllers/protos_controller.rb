@@ -1,6 +1,6 @@
 class ProtosController < ApplicationController
   def index
-    @protos = Proto.order(:created_at).reverse_order.page(params[:page]).per(8)
+    @protos = Proto.includes(:user, :images).order(:created_at).reverse_order.page(params[:page]).per(8)
   end
 
   def new
@@ -10,18 +10,24 @@ class ProtosController < ApplicationController
 
   def create
     @proto = Proto.create(create_params)
-    redirect_to :root
+    if @proto.valid?
+      redirect_to :root
+    else
+      flash[:notice] = "Title and Catch_copy can't be blank."
+      render :new
+    end
   end
 
   def show
-    @proto = Proto.find(params[:id])
+    @proto = Proto.includes(:user, :images).find(params[:id])
+    @tags = @proto.tag_list
     @likes = Like.where(proto_id: params[:id])
       if user_signed_in?
         if @proto.like_user(current_user.id).present?
           @like = Like.where(user_id: current_user.id, proto_id: params[:id])
         end
       end
-    @comment = Comment.new
+    @comment = Comment.includes(:user).new
     @comments = @proto.comments
   end
 

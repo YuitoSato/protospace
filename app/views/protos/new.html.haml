@@ -4,12 +4,14 @@
       %header.row.user-nav.row
         .col-md-12
           .proto-new-title
+            - flash.each do |key, value|
+              = content_tag(:div, value, class: "#{key}")
             = f.text_field :title, autofocus: true, placeholder: "Title"
 
         .row
           .col-md-12
             .cover-image-upload
-              = f.fields_for :image do |image|
+              = f.fields_for :images do |image|
                 = image.file_field :image, onChange: "javascript: main_image_preview();", id: "main-image"
                 = image.hidden_field :status, value: :main
             #main-preview.thumbnail
@@ -53,6 +55,5 @@
 
             .col-md-3
               = text_field_tag "tags[]", "", id: "prototype_tag_list", placeholder: "Application"
-
       .row.text-center.proto-btn
         = f.submit value: 'Publish', class: "btn btn-lg btn-primary btn-block"
