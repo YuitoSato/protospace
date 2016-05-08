@@ -43,8 +43,6 @@ gem 'nokogiri'
 
 gem 'config'
 
-gem "erb2haml"
-
 gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
@@ -65,4 +63,15 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+end
+
+group :test do
+  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
+  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybaraのためのドライバ
 end
