@@ -45,6 +45,8 @@ gem "erb2haml"
 
 gem 'jquery-turbolinks'
 
+gem 'fog-aliyun', '~> 0.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
