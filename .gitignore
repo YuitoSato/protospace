@@ -15,8 +15,6 @@
 # Ignore all files in the public/uploads/
 /public/uploads
 
-/public/assets
-
 # Ignore all files in the vendor
 /vendor
 
